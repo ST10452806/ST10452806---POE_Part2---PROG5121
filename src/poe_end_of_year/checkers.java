@@ -9,20 +9,27 @@ public class checkers {
         this.userName = userName;
         this.Password = Password;
     }
+    
+    public void setUserName(String user){this.userName = user;}
+     public void setPassword(String pass){this.Password = pass;}
+      public void setLoginPassword(String LoginPass){this.Password = LoginPass;}
+       public void setLoginUserName(String LoginUserName){this.userName = LoginUserName;}
 
     //create boolean to check user name is correct in terms of the requirements
     public boolean checkUserName() {
-
-        if (userName.length() <= 5 && userName.contains("_")) {
-
+        
+        if (userName.length() >= 5 && userName.contains("_")) {
+            
             return true;
-
+            
         } else {
             System.out.println("Invalid username. Must be at least 5 characters long and contain an underscore.");
-            return false;
+             return false;
         }
-
+        
+   
     }
+
 
     //create boolean that checks the passowrd is correct
     public boolean checkPasswordComplexity() {
@@ -41,8 +48,10 @@ public class checkers {
 
     //Create boolean to check the user name and password are valid
     public boolean checkRegistration() {
-
-        if (checkPasswordComplexity() || checkUserName()) {
+        
+        while (!checkPasswordComplexity() || checkUserName()) { 
+            
+            if (checkPasswordComplexity() && checkUserName()) {
 
             System.out.println("The above conditions have been met and the registration was successful");
             return true;
@@ -53,6 +62,11 @@ public class checkers {
             return false;
 
         }
+            
+            
+        }
+        return true;
+        
     }
 
     public boolean checkLogin(String loginUsername, String loginPassword) {
@@ -76,7 +90,18 @@ public class checkers {
             return false;
 
         }
+        
+        
+        
+        
+        
 
     }
+    
+   
+              
+        
+        
+    
 
 }
