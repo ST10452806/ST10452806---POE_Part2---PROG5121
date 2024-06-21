@@ -326,11 +326,11 @@ public class Tasks {
                 return "Developer: " + assignedDeveloperNames.get(i)
                         + "\nTask Name: " + assignedTaskNames.get(i)
                         + "\nTask Status: " + assignedStatus.get(i);
-            }else{
+            }/*else{
                 
                 JOptionPane.showInputDialog("Please enter the correct developers name: ");
 
-            }
+            }*/
         }
         return "Developer name not found";
     }
