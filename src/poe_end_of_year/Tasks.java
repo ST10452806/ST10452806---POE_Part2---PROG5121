@@ -302,14 +302,11 @@ public class Tasks {
     return "Task name or task not found";
 }
     public String searchTasksByDeveloper() {
-        
     String searchedDN = JOptionPane.showInputDialog("Enter the developer's name you want to see:");
     String result = "";
 
     for (String developerName : assignedDeveloperNames) {
-        
         if (developerName.equals(searchedDN)) {
-            
             int index = assignedDeveloperNames.indexOf(developerName);
             result += "Developer: " + developerName + "\n";
             result += "Task Name: " + assignedTaskNames.get(index) + "\n";
