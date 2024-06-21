@@ -257,17 +257,18 @@ public class Tasks {
     }
 
     public String showTasksByStatus(String status) {
-
-        for (int i = 0; i < assignedStatus.size(); i++) {
-            if (assignedStatus.get(i).equals(status)) {
-                return "Task name: " + assignedTaskNames.get(i)
-                        + "\nDeveloper: " + assignedDeveloperNames.get(i)
-                        + "\nDuration: " + assignedDurations.get(i);
-            }
+        
+    for (String stat : assignedStatus) {
+            
+        if (stat.equals(status)) {
+            int index = assignedStatus.indexOf(stat);
+            return "Task name: " + assignedTaskNames.get(index)
+                    + "\nDeveloper: " + assignedDeveloperNames.get(index)
+                    + "\nDuration: " + assignedDurations.get(index);
         }
-
-        return "Task not found";
     }
+    return "Task not found";
+}
 
     public String showTaskWithLongestDuration() {
 
@@ -287,53 +288,43 @@ public class Tasks {
     }
 
     public String searchTaskByName() {
+    String searchTaskName = JOptionPane.showInputDialog("Enter the task name you want to see:");
 
-        String searchTaskName = JOptionPane.showInputDialog("Enter the task name you want to see:");
-
-        for (int i = 0; i < assignedTaskNames.size(); i++) {
-
-            if (assignedTaskNames.get(i).equals(searchTaskName)) {
-
-                return "Task Name: " + assignedTaskNames.get(i)
-                        + "\nDeveloper: " + assignedDeveloperNames.get(i)
-                        + "\nTask Status: " + assignedStatus.get(i);
-            }
+    for (String taskName : assignedTaskNames) {
+        if (taskName.equals(searchTaskName)) {
+            int index = assignedTaskNames.indexOf(taskName);
+            return "Task Name: " + taskName
+                    + "\nDeveloper: " + assignedDeveloperNames.get(index)
+                    + "\nTask Status: " + assignedStatus.get(index);
         }
-
-        return "Task name or task not found";
     }
 
+    return "Task name or task not found";
+}
     public String searchTasksByDeveloper() {
+        
+    String searchedDN = JOptionPane.showInputDialog("Enter the developer's name you want to see:");
+    String result = "";
 
-        /*String developerName = "";
+    for (String developerName : assignedDeveloperNames) {
         
-        String result = "";
-        for (int i = 0; i < assignedDeveloperNames.size(); i++) {
-            if (assignedDeveloperNames.get(i).equals(developerName)) {
-                result += "Task Name: " + assignedTaskNames.get(i) + "\n";
-                result += "Task Status: " + assignedStatus.get(i) + "\n";
-            }
-        }
-        return result;*/
-
-        String searchedDN = JOptionPane.showInputDialog("Enter the developer's name you want to see");
-        
-        
-        for (int i = 0; i < assignedDeveloperNames.size(); i++) {
+        if (developerName.equals(searchedDN)) {
             
-            if (assignedDeveloperNames.get(i).equals(searchedDN)) {
-                
-                return "Developer: " + assignedDeveloperNames.get(i)
-                        + "\nTask Name: " + assignedTaskNames.get(i)
-                        + "\nTask Status: " + assignedStatus.get(i);
-            }else{
-                
-                JOptionPane.showInputDialog("Please enter the correct developers name: ");
-
-            }
+            int index = assignedDeveloperNames.indexOf(developerName);
+            result += "Developer: " + developerName + "\n";
+            result += "Task Name: " + assignedTaskNames.get(index) + "\n";
+            result += "Task Status: " + assignedStatus.get(index) + "\n";
         }
-        return "Developer name not found";
     }
+
+    if (result.isEmpty()) {
+        
+        return "Developer name not found";
+        
+    } else {
+        return result;
+    }
+}
 
     public String deleteTask() {
 
@@ -395,13 +386,7 @@ public class Tasks {
         return developerName.matches("[a-zA-Z\\s]+");
     }
 
-    /*public boolean correctDeletedTask(String deletedTask){
-        
-        if(deletedTask.matches(assignedTaskNames)){
-            
-        }
-        
-    }*/
+    
 }
 
 //https://www.naukri.com/code360/library/remove-an-element-from-an-array-in-java this for the deletion method
