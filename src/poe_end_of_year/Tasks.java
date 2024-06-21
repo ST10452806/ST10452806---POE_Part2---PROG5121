@@ -217,7 +217,7 @@ public class Tasks {
                                4. Search for all tasks assigned to a developer and show the name of the task and its status
                                5. Choose this option if you want to delete a task
                                6. Display a report that shows the full list of details of each task
-                               7. Exit back to main menu
+                                                              
                                """;
 
         for (int a = 0; a < 10; a++) {
@@ -248,7 +248,7 @@ public class Tasks {
                     displayAllTasks();
                     break;
                 default:
-                    JOptionPane.showMessageDialog(null, "Invalid option");
+                    JOptionPane.showMessageDialog(null, "Invalid returning to show reports menu");
                     break;
             }
 
@@ -350,7 +350,7 @@ public class Tasks {
 
     }
 
-    /*public void displayAllTasks() {
+    public void displayAllTasks() {
         
         for (int i = 0; i < assignedTaskNames.size(); i++) {
             
@@ -361,13 +361,13 @@ public class Tasks {
                     + "\nStatus: " + assignedStatus.get(i);
             JOptionPane.showMessageDialog(null, taskInfo);
         }
-    }*/
+    }
 
-    public String displayAllTasks() {
+    /*public String displayAllTasks() {
         
         for (int i = 0; i < assignedTaskNames.size(); i++) {
+            
             return "Task Name: " + assignedTaskNames.get(i)
-                   // + "\nTask number: " + assignedTaskNumber.get(i)
                     + "\nDeveloper: " + assignedDeveloperNames.get(i)
                     + "\nTask ID: " + assignedTaskID.get(i)
                     + "\nDuration: " + assignedDurations.get(i)
@@ -375,7 +375,10 @@ public class Tasks {
             
         }
         return "Task not found";
-    }
+    }*/
+
+
+
     public boolean validDeveloperName(String developerName) {
 
         if (developerName.trim().isEmpty() || developerName.trim().isBlank()) {
