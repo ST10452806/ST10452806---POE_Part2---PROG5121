@@ -291,7 +291,9 @@ public class Tasks {
     String searchTaskName = JOptionPane.showInputDialog("Enter the task name you want to see:");
 
     for (String taskName : assignedTaskNames) {
+        
         if (taskName.equals(searchTaskName)) {
+            
             int index = assignedTaskNames.indexOf(taskName);
             return "Task Name: " + taskName
                     + "\nDeveloper: " + assignedDeveloperNames.get(index)
@@ -302,25 +304,24 @@ public class Tasks {
     return "Task name or task not found";
 }
     public String searchTasksByDeveloper() {
-    String searchedDN = JOptionPane.showInputDialog("Enter the developer's name you want to see:");
-    String result = "";
 
-    for (String developerName : assignedDeveloperNames) {
-        if (developerName.equals(searchedDN)) {
-            int index = assignedDeveloperNames.indexOf(developerName);
-            result += "Developer: " + developerName + "\n";
-            result += "Task Name: " + assignedTaskNames.get(index) + "\n";
-            result += "Task Status: " + assignedStatus.get(index) + "\n";
-        }
-    }
+    String searchedDN = JOptionPane.showInputDialog("Enter the developer's name you want to see");
+    
+    
+    for (int i = 0; i < assignedDeveloperNames.size(); i++) {
+        
+        if (assignedDeveloperNames.get(i).equals(searchedDN)) {
+            
+            return "Developer: " + assignedDeveloperNames.get(i)
+                    + "\nTask Name: " + assignedTaskNames.get(i)
+                    + "\nTask Status: " + assignedStatus.get(i);
+        }/*else{
+            
+            JOptionPane.showInputDialog("Please enter the correct developers name: ");
 
-    if (result.isEmpty()) {
-        
-        return "Developer name not found";
-        
-    } else {
-        return result;
+        }*/
     }
+    return "Developer name not found";
 }
 
     public String deleteTask() {
