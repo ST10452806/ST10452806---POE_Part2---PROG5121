@@ -5,6 +5,7 @@ import java.util.*;
 
 //Task = class name that holds all the variables and constructors 
 //Tasks = main method that holds the whole code
+
 class Task {
 
     public int taskNumber;
@@ -236,8 +237,9 @@ public class Tasks {
                     //searchTaskByName();
                     break;
                 case 4:
-                    JOptionPane.showMessageDialog(null, searchTasksByDeveloper());
-                    //searchTasksByDeveloper();
+                    //JOptionPane.showMessageDialog(null, searchTasksByDeveloper());
+                    
+                    searchTasksByDeveloper();
                     break;
                 case 5:
                     JOptionPane.showMessageDialog(null, deleteTask());
@@ -262,9 +264,10 @@ public class Tasks {
             
         if (stat.equals(status)) {
             int index = assignedStatus.indexOf(stat);
-            return "Task name: " + assignedTaskNames.get(index)
+            String taskInfo = "Task name: " + assignedTaskNames.get(index)
                     + "\nDeveloper: " + assignedDeveloperNames.get(index)
                     + "\nDuration: " + assignedDurations.get(index);
+            JOptionPane.showMessageDialog(null, taskInfo);
         }
     }
     return "Task not found";
@@ -303,7 +306,7 @@ public class Tasks {
 
     return "Task name or task not found";
 }
-    public String searchTasksByDeveloper() {
+    public void searchTasksByDeveloper() {
 
     String searchedDN = JOptionPane.showInputDialog("Enter the developer's name you want to see");
     
@@ -312,16 +315,17 @@ public class Tasks {
         
         if (assignedDeveloperNames.get(i).equals(searchedDN)) {
             
-            return "Developer: " + assignedDeveloperNames.get(i)
+            String taskDev = "Developer: " + assignedDeveloperNames.get(i)
                     + "\nTask Name: " + assignedTaskNames.get(i)
                     + "\nTask Status: " + assignedStatus.get(i);
+            JOptionPane.showMessageDialog(null, taskDev);
         }/*else{
             
             JOptionPane.showInputDialog("Please enter the correct developers name: ");
 
         }*/
     }
-    return "Developer name not found";
+    //return "Developer name not found";
 }
 
     public String deleteTask() {
